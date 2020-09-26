@@ -32,7 +32,7 @@ while True:
 
   reading_counter += 1
   current_time = time.time()
-  time_string = time.strftime("%Y%m%d %H:%M:%S", time.gmtime())
+  time_string = time.strftime("%Y%m%dT%H:%M:%S", time.gmtime())
 
   for sensordata in sensors:
       name = sensordata[0]
@@ -43,7 +43,7 @@ while True:
       time.sleep(0.2)
       
       # output: date, sensor, temperature
-      print("{} {} {}".format(time_string, name, sensor.temperature()))
+      print("{} {} {}".format(time_string, sensor.temperature(), name.replace(" ", "_")))
 
   next_reading += QUERY_INTERVAL
 
